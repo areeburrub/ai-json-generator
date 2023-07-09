@@ -1,10 +1,22 @@
 "use client";
-import JsonEditor from "@/components/inputJsonEditor";
-import JsonAiOutput from "@/components/outputJson";
+// import JsonEditor from "@/components/inputJsonEditor";
+// import JsonAiOutput from "@/components/outputJson";
 import {Button} from "@/components/ui/button";
 import {useEffect, useState} from "react";
 
 import { useChat } from 'ai/react';
+
+import dynamic from 'next/dynamic'
+
+const JsonEditor = dynamic(
+  () => import("@/components/inputJsonEditor"),
+  { ssr: false }
+)
+const JsonAiOutput = dynamic(
+  () => import("@/components/outputJson"),
+  { ssr: false }
+)
+
 
 export default function Home() {
   const { messages, append , setMessages } = useChat(
@@ -34,6 +46,8 @@ export default function Home() {
     }
     console.log(messages)
   }, [messages])
+
+
 
   function generateJson() {
     setMessages([

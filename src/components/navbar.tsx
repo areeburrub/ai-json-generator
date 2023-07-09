@@ -15,10 +15,10 @@ export const Navbar = () => {
           </div>
         </Link>
         <div className={'flex flex-row gap-5'}>
-          <Button variant={'link'} className={'text-gray-800 hover:text-gray-900'} onClick={()=>{router.push('/')}}>Home</Button>
-          <Button variant={'link'} className={'text-gray-800 hover:text-gray-900'} onClick={()=>{router.push('/api')}}>API</Button>
-          <Button variant={'link'} className={'text-gray-800 hover:text-gray-900'} onClick={()=>{router.push('/pricing')}}>Pricing</Button>
-          <Button variant={'link'} className={'text-gray-800 hover:text-gray-900'} onClick={()=>{router.push('/docs')}}>Docs</Button>
+          <Button variant={'link'} className={'text-gray-800 hover:text-gray-900'} onClick={()=>{}}>Home</Button>
+          <Button variant={'link'} className={'text-gray-800 hover:text-gray-900'} onClick={()=>{}}>API</Button>
+          <Button variant={'link'} className={'text-gray-800 hover:text-gray-900'} onClick={()=>{}}>Pricing</Button>
+          <Button variant={'link'} className={'text-gray-800 hover:text-gray-900'} onClick={()=>{}}>Docs</Button>
         </div>
       </nav>
     </div>

@@ -14,7 +14,7 @@ export const Navbar = () => {
             <span>AI JSON Generator</span>
           </div>
         </Link>
-        <div className={'flex flex-row gap-5'}>
+        <div className={'hidden lg:flex flex-row gap-5'}>
           <Button variant={'link'} className={'text-gray-800 hover:text-gray-900'} onClick={()=>{}}>Home</Button>
           <Button variant={'link'} className={'text-gray-800 hover:text-gray-900'} onClick={()=>{}}>API</Button>
           <Button variant={'link'} className={'text-gray-800 hover:text-gray-900'} onClick={()=>{}}>Pricing</Button>

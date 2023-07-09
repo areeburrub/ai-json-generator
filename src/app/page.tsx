@@ -19,11 +19,14 @@ const JsonAiOutput = dynamic(
 
 
 export default function Home() {
+
+  const proomt = "You are a json generator ai, you will be given a json and as output you will give a sample json objects try to keep real like data and don't use placeholder text. Don't create more than 3 samples. ONLY OUTPUT JSON NOTHING ELSE."
+
   const { messages, append , setMessages } = useChat(
     {
       initialMessages: [
         {
-          id:"1", role: "system", content: "You are a sample json generator ai, you will be given a sample json and in output you will give the array of 5 json objects with fake data. ONLY OUTPUT JSON NOTHING ELSE."
+          id:"1", role: "system", content: proomt
         },
         ]
     }
@@ -52,9 +55,12 @@ export default function Home() {
   function generateJson() {
     setMessages([
       {
-        id:"1", role: "system", content: "You are a sample json generator ai, you will be given a sample json and in output you will give the array of 5 json objects with fake data. ONLY OUTPUT JSON NOTHING ELSE."
+        id:"1", role: "system", content: proomt
       },
     ]);
+
+    const element = document.getElementById("AiGenerated");
+    element?.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
 
     append(
       {
@@ -62,19 +68,20 @@ export default function Home() {
       },
     ).then(() => {
       console.log('appended')
+      //scroll to #AiGenerated
     })
   }
 
   return (
     <main className="container flex min-h-screen flex-col items-center ">
-      <div className={'grid grid-cols-5 gap-5 w-full h-[85vh]'}>
-        <div className={'col-span-2'}>
+      <div className={'grid grid-cols-5 gap-16 lg:gap-5 w-full min-h-[85vh]'}>
+        <div className={'col-span-full lg:col-span-2 h-full'}>
           <h1 className={'w-full text-center text-lg font-bold p-2 bg-gray-200'}>
             Input Sample JSON Prompt
           </h1>
           <JsonEditor value={''} onChange={handleInputJsonChange}/>
         </div>
-        <div className={'col-span-1 flex flex-col items-center justify-center'}>
+        <div className={'col-span-full lg:col-span-1 flex flex-col items-center justify-center'}>
           <Button
             variant={'default'}
             className={'w-full'}
@@ -83,7 +90,7 @@ export default function Home() {
             Generate
           </Button>
         </div>
-        <div className={'col-span-2'}>
+        <div className={'col-span-full lg:col-span-2'} id={'AiGenerated'}>
           <h1 className={'w-full text-center text-lg font-bold p-2 bg-gray-200'}>
             AI Generated JSON
           </h1>

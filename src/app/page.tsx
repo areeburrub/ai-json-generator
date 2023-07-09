@@ -44,9 +44,11 @@ export default function Home() {
 
     append(
       {
-        id:"sample-json", role: "user", content: inputJson
+        id: "sample-json", role: "user", content: inputJson
       },
-    )
+    ).then(() => {
+      console.log('appended')
+    })
   }
 
   return (
@@ -62,7 +64,7 @@ export default function Home() {
           <Button
             variant={'default'}
             className={'w-full'}
-            onClick={generateJson}
+            onClick={()=>{generateJson()}}
           >
             Generate
           </Button>

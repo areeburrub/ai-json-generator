@@ -4,8 +4,6 @@ import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-terminal";
 import "ace-builds/src-noconflict/ext-language_tools";
-import {useState} from "react";
-import {cn} from "@/lib/utils";
 
 const JsonAiOutput = ({className, json, setJson}:{className?:string, json:string, setJson:(value:string)=>void }) => {
 
@@ -23,7 +21,7 @@ const JsonAiOutput = ({className, json, setJson}:{className?:string, json:string
       onChange={(value) => {
         setJson(value)
       }}
-      className={cn('w-full h-full min-h-[500px] min-w-[200px]'+" "+ className)}
+      className={'w-full h-full min-h-[500px] min-w-[200px]'}
       setOptions={{
         enableBasicAutocompletion: true,
         enableLiveAutocompletion: true,
